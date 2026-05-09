@@ -1,22 +1,24 @@
 class Solution {
     public String solution(String rsp) {
-        String[] rspArr = rsp.split("");
-        String answer = "";
+        StringBuilder sb = new StringBuilder();
         
-        for(int i = 0; i < rspArr.length; i++) {
-            switch (rspArr[i]) {
-                case "0":
-                        answer += "5";
-                        break;
-                case "2":
-                        answer += "0";
-                        break;
-                case "5":
-                        answer += "2";
-                        break;
+        char[] charArr = rsp.toCharArray();
+        
+        for(char c: charArr) {
+            switch (c) {
+                case '0':
+                    sb.append("5");
+                    break;
+                case '2':
+                    sb.append("0");
+                    break;
+                case '5':
+                    sb.append("2");
+                    break;
             }
         }        
         
+        String answer = sb.toString();
         return answer;
     }
 }
