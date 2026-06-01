@@ -1,7 +1,7 @@
 import java.util.*;
 
 class Solution {
-    public int solution(String s) { // 20:55~
+    public int solution(String s) { 
         int answer = s.length();
         // 1부터 문자열 길이의 절반만큼 for문으로 다 잘라보기
         for (int i = 1; i < s.length() / 2 + 1; i++) { // 자를 단위
@@ -26,6 +26,7 @@ class Solution {
                     target = compare;
                 }
             }
+            // 마지막 문자열 더해주기
             compressed += target;
             answer = Math.min(answer, compressed.length());
         }
