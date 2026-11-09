@@ -39,13 +39,12 @@ class Solution {
                     + Math.abs(right[1]-pos[n][1]);
                 if ((ldist > rdist) 
                     || (ldist == rdist && hand.equals("right"))) {
-                        sb.append("R");
-                        right = pos[n];
-                    } else {
-                        sb.append("L");
-                        left = pos[n];
-                    }
-
+                    sb.append("R");
+                    right = pos[n];
+                } else {
+                    sb.append("L");
+                    left = pos[n];
+                }
             }
         }
         return sb.toString();
