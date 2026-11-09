@@ -24,12 +24,12 @@ class Solution {
         int[] right = pos[11];
         // 눌러야 할 번호 순회
         for (int n : numbers) {
-            if (List.of(1, 4, 7).contains(n)) {
+            if (n == 1 || n == 4 || n == 7) {
                 answer += "L";
                 left = pos[n];
                 continue;
             }
-            if (List.of(3, 6, 9).contains(n)) {
+            if (n == 3 || n == 6 || n == 9) {
                 answer += "R";
                 right = pos[n];
                 continue;
