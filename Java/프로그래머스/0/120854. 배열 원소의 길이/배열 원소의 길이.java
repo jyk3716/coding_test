@@ -1,3 +1,4 @@
+// 3분 소요
 class Solution {
     public int[] solution(String[] strlist) {
         int[] answer = new int[strlist.length];
