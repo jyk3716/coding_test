@@ -1,9 +1,8 @@
 class Solution {
     public int solution(String my_string) {
         int answer = 0;
-        String[] arr = my_string.split("");
-        for (String s : arr) {
-            if (s.matches("[0-9]")) answer += Integer.parseInt(s);
+        for (char c : my_string.toCharArray()) {
+            if (Character.isDigit(c)) answer += c - '0';
         }
         return answer;
     }
