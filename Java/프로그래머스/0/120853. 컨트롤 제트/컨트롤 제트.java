@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+// 10분 소요
 class Solution {
     public int solution(String s) {
         int answer = 0;
