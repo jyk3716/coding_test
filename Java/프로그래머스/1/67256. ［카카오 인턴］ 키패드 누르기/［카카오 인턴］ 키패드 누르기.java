@@ -2,7 +2,7 @@ import java.util.List;
 
 class Solution {
     public String solution(int[] numbers, String hand) {
-        String answer = "";
+        StringBuilder sb = new StringBuilder();
         // 좌표 저장
         // pos[숫자] = {행, 열}
         int[][] pos = {
@@ -25,37 +25,29 @@ class Solution {
         // 눌러야 할 번호 순회
         for (int n : numbers) {
             if (n == 1 || n == 4 || n == 7) {
-                answer += "L";
+                sb.append("L");
                 left = pos[n];
-                continue;
-            }
-            if (n == 3 || n == 6 || n == 9) {
-                answer += "R";
+            } else if (n == 3 || n == 6 || n == 9) {
+                sb.append("R");
                 right = pos[n];
-                continue;
-            }
-            int ldist = 
-                Math.abs(left[0]-pos[n][0]) 
-                + Math.abs(left[1]-pos[n][1]);
-            int rdist = 
-                Math.abs(right[0]-pos[n][0]) 
-                + Math.abs(right[1]-pos[n][1]);
-            if (ldist == rdist) {
-                if (hand.equals("right")) {
-                    answer += "R";
-                    right = pos[n];
-                } else {
-                    answer += "L";
-                    left = pos[n];
-                }
-            } else if (ldist > rdist) {
-                answer += "R";
-                right = pos[n];
-            } else if (ldist < rdist) {
-                answer += "L";
-                left = pos[n];
+            } else {
+                int ldist = 
+                    Math.abs(left[0]-pos[n][0]) 
+                    + Math.abs(left[1]-pos[n][1]);
+                int rdist = 
+                    Math.abs(right[0]-pos[n][0]) 
+                    + Math.abs(right[1]-pos[n][1]);
+                if ((ldist > rdist) 
+                    || (ldist == rdist && hand.equals("right"))) {
+                        sb.append("R");
+                        right = pos[n];
+                    } else {
+                        sb.append("L");
+                        left = pos[n];
+                    }
+
             }
         }
-        return answer;
+        return sb.toString();
     }
 }
